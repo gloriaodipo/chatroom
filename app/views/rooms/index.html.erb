@@ -1,0 +1,45 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-3">
+      <div class="position-fixed">
+        <p>Hello, <%= current_user.username %></p>
+        <%=render 'form', room: Room.new %>
+        <hr>
+        <% @rooms.each do |room| %>
+          <%= link_to room do %>
+            <div class="card mb-2">
+              <div class="card-body">
+                <%= room.name %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-9">
+      <% if @room.present? %>
+        <div class="chat-room">
+          <p><%= @room.name %></p>
+          <% @room.messages.each do |message|%>
+            <div class="message mt-5 mb-2 <%= 'me' if message.user == current_user%>">
+              <div class="content-container">
+                <div class="content mb-4">
+                  <%= message.content%>
+                  <hr/>
+                  <em><%= message.created_at.to_formatted_s(:short) %></em>
+                  <div class="author">
+                    <%= message.user.username%>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+          <div class="chat-box position-sticky">
+            <%= render 'messages/form', message: 
+            Message.new, room: @room %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

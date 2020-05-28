@@ -1,0 +1,47 @@
+.chat-room {
+  height: 100vh;
+  .message {
+    min-height: 59px;
+    .content-container {
+      display: inline-block;
+      .content {
+        background-color: #eeeeee;
+        padding: 10px;
+        border-radius: 15px;
+        width: 100%;
+      }
+      .author {
+        color: rgb(8, 129, 129);
+        font-style: italic;
+      }
+    }
+    &.me {
+      .content-container {
+        float: right;
+      }
+    }
+  }
+  .chat-box {
+    position: absolute;
+    bottom: 0;
+    padding: 20px;
+    outline: none;
+    width: calc(100% - 15px);
+    input[type=text] {
+      height: 60px;
+      font-size: 18px;
+      padding: 8px;
+      border-radius: 5px;
+    }
+    .btn {
+      height: 60px;
+      border-radius: 5px;
+    }
+  }
+}
+
+.form-control:focus {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
