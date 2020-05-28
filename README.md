@@ -1,7 +1,6 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a chatroom application where users can switch between different rooms and chat. A message is accompanied by the author's name for clarity.
 
 Things you may want to cover:
 
